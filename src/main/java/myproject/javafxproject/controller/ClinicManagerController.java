@@ -12,6 +12,8 @@ public class ClinicManagerController {
     protected TabPane mainTabPane;
     @FXML
     protected DatePicker datePicker;
+    @FXML
+    protected TextArea outputArea;
 
 
     public void onRescheduleButtonClick(ActionEvent actionEvent) {

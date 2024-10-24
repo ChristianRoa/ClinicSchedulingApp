@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="myproject.javafxproject.controller.ClinicManagerController">
     <padding>
@@ -35,4 +36,7 @@
             <!-- Add your content here -->
         </Tab>
     </TabPane>
+    <TextArea fx:id="outputArea" prefHeight="200" editable="false" wrapText="true"
+              promptText="Output" />
+
 </VBox>
