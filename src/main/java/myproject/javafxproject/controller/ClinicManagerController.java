@@ -1,5 +1,6 @@
 package myproject.javafxproject.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -8,45 +9,17 @@ import myproject.javafxproject.model.clinic.Patient;
 public class ClinicManagerController {
 
     @FXML
-    private Label welcomeText;
-
+    protected TabPane mainTabPane;
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected DatePicker datePicker;
+
+
+    public void onRescheduleButtonClick(ActionEvent actionEvent) {
     }
-
-    @FXML
-    protected void onSubmitButtonClick() {
-        // Handle button click
-        System.out.println("Button clicked!");
+    public void onScheduleButtonClick(ActionEvent event) {
+        // Your code here for scheduling the appointment
     }
-
-    @FXML
-    private TextField nameTextField;
-    @FXML
-    private TextField nameTextsField;
-
-    @FXML
-    private RadioButton option1RadioButton;
-    @FXML
-    private RadioButton option2RadioButton;
-
-    @FXML
-    private TextArea commentsTextArea;
-
-    @FXML
-    private TableView<Patient> patientsTableView;
-    @FXML
-    private TableColumn<Patient, String> nameColumn;
-    @FXML
-    private TableColumn<Patient, Integer> ageColumn;
-
-    @FXML
-    private TabPane tabPane;
-
-    @FXML
-    private GridPane formGridPane;
-
-
-
+    public void onCancelButtonClick(ActionEvent event) {
+        // Your code for canceling the operation
+    }
 }

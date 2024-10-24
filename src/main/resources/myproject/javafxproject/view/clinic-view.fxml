@@ -1,54 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.VBox?>
+
 <?import javafx.scene.layout.GridPane?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="myproject.javafxproject.controller.ClinicManagerController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets top="10" left="10" right="10" bottom="10"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-    <TextField fx:id="nameTextsField" promptText="Enter your name" />
-    <Button text="Submit" onAction="#onSubmitButtonClick" />
-    <RadioButton fx:id="option1RadioButton" text="Option 1" />
-    <RadioButton fx:id="option2RadioButton" text="Option 2" />
-    <TextArea fx:id="commentsTextArea" promptText="Enter your comments here" />
-    <TableView fx:id="patientsTableView">
-        <columns>
-            <TableColumn fx:id="nameColumn" text="Name" />
-            <TableColumn fx:id="ageColumn" text="Age" />
-        </columns>
-    </TableView>
+    <TabPane fx:id="mainTabPane">
 
-    <TabPane fx:id="tabPane">
-        <tabs>
-            <Tab text="Tab 1">
-                <Label text="Content for Tab 1"/>
-            </Tab>
-        </tabs>
+        <Tab text="Schedule/Cancel">
+            <VBox spacing="20">
+                <!-- Date Entry -->
+                <GridPane hgap="10" vgap="10">
+                    <DatePicker fx:id="datePicker" promptText="Appointment Date"/>
+                </GridPane>
+            </VBox>
+        </Tab>
+
+        <!-- Reschedule Tab -->
+        <Tab text="Reschedule">
+            <!-- Add your content here -->
+        </Tab>
+
+        <!-- Clinic Locations Tab -->
+        <Tab text="Clinic Locations">
+            <!-- Add your content here -->
+        </Tab>
     </TabPane>
-
-    <GridPane fx:id="formGridPane">
-        <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-        <TextField fx:id="nameTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-        <Button text="Submit" onAction="#onSubmitButtonClick" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    </GridPane>
-
-
-
-
-
 </VBox>
