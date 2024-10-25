@@ -3,25 +3,41 @@ package myproject.javafxproject.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import myproject.javafxproject.model.clinic.Patient;
+import myproject.javafxproject.model.clinic.Timeslot;
+
+import javax.swing.*;
 
 public class ClinicManagerController {
 
+
     @FXML
-    protected TabPane mainTabPane;
-    @FXML
-    protected DatePicker datePicker;
-    @FXML
-    protected TextArea outputArea;
+    protected RadioButton rbutton1, rbutton2;
 
 
-    public void onRescheduleButtonClick(ActionEvent actionEvent) {
+    @FXML
+    protected ComboBox<String> timeslotComboBox;
+
+    @FXML
+    protected void initialize() {
+        populateTimeslots();
+        selectApp();
     }
-    public void onScheduleButtonClick(ActionEvent event) {
-        // Your code here for scheduling the appointment
+
+    private void populateTimeslots() {
+        for(int[] timeslot : Timeslot.validTimeslots){
+            Timeslot slot = new Timeslot(timeslot[0], timeslot[1]);
+            timeslotComboBox.getItems().add(slot.toString());
+        }
     }
-    public void onCancelButtonClick(ActionEvent event) {
-        // Your code for canceling the operation
+
+    protected void selectApp() {
+        rbutton1.setSelected(true);
+        if(rbutton2.isSelected()){
+            rbutton1.setSelected(false);
+        }
     }
+
 }

@@ -1,6 +1,7 @@
 module myproject.javafxproject {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens myproject.javafxproject to javafx.fxml;

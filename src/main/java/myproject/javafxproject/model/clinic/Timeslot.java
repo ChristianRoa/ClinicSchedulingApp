@@ -12,7 +12,7 @@ public class Timeslot implements Comparable<Timeslot> {
     private final int minute;
 
     // Valid timeslots
-    private static final int[][] validTimeslots = {
+    public static final int[][] validTimeslots = {
             {9, 0}, {9, 30}, {10, 0}, {10, 30}, {11, 0}, {11, 30},
             {14, 0}, {14, 30}, {15, 0}, {15, 30}, {16, 0}, {16, 30}
     };
@@ -23,7 +23,7 @@ public class Timeslot implements Comparable<Timeslot> {
      * @param hour the hour of the timeslot (0-23)
      * @param minute the minute of the timeslot (0-59)
      */
-    private Timeslot(int hour, int minute) {
+    public Timeslot(int hour, int minute) {
         this.hour = hour;
         this.minute = minute;
     }
@@ -89,7 +89,9 @@ public class Timeslot implements Comparable<Timeslot> {
      */
     @Override
     public String toString() {
-        return String.format("%02d:%02d", hour, minute);
+        int displayHour = (hour == 0 || hour == 12) ? 12 : hour % 12;
+        String period = hour < 12 ? "AM" : "PM";
+        return String.format("%02d:%02d %s", displayHour, minute, period);
     }
 
     /**
