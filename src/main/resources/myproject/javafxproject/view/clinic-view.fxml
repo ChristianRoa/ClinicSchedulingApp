@@ -21,7 +21,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.ToggleButton?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.javafxproject.controller.ClinicManagerController">
     <top>
         <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
@@ -49,7 +48,7 @@
                                                 <Insets right="5.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <DatePicker prefHeight="25.0" prefWidth="193.0" GridPane.columnIndex="1" />
+                                        <DatePicker editable="false" prefHeight="25.0" prefWidth="193.0" GridPane.columnIndex="1" />
                                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="107.0" text="Patient Details" GridPane.rowIndex="1">
                                             <opaqueInsets>
                                                 <Insets />
@@ -62,13 +61,16 @@
                                             <children>
                                                 <TextField promptText="first name" />
                                                 <TextField promptText="last name" />
-                                                <DatePicker promptText="date of birth" />
+                                                <DatePicker editable="false" promptText="date of birth" />
                                             </children>
                                         </VBox>
                                         <HBox spacing="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <children>
-                                                <RadioButton text="Office Visit" fx:id="rbutton1" />
-                                                <RadioButton text="Imaging Service" fx:id="rbutton2" />
+                                                <RadioButton fx:id="rbutton1" selected="true" text="Office Visit">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="AppToggleGroup" />
+                                       </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="rbutton2" text="Imaging Service" toggleGroup="$AppToggleGroup" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -124,7 +126,7 @@
                                     <Insets right="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <DatePicker prefHeight="25.0" prefWidth="193.0" GridPane.columnIndex="1" />
+                              <DatePicker editable="false" prefHeight="25.0" prefWidth="193.0" GridPane.columnIndex="1" />
                               <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="107.0" text="Patient Details" GridPane.rowIndex="1">
                                  <opaqueInsets>
                                     <Insets />
@@ -137,12 +139,12 @@
                                  <children>
                                     <TextField promptText="first name" />
                                     <TextField promptText="last name" />
-                                    <DatePicker promptText="date of birth" />
+                                    <DatePicker editable="false" promptText="date of birth" />
                                  </children>
                               </VBox>
                               <HBox spacing="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <ComboBox prefWidth="125.0" promptText="New Timeslot">
+                                    <ComboBox fx:id="timeslotComboBox2" prefWidth="125.0" promptText="New Timeslot">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
