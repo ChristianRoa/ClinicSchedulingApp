@@ -85,7 +85,7 @@
                                         </HBox>
                                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                             <children>
-                                                <Button mnemonicParsing="false" text="Load Providers" />
+                                                <Button mnemonicParsing="false" text="Load Providers" onAction="#loadProviders"/>
                                             </children>
                                         </HBox>
                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
