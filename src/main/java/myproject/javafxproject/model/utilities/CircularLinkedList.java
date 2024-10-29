@@ -114,21 +114,21 @@ public class CircularLinkedList {
      * Prints the names and locations of all technician providers in the list.
      * The list is printed in a circular format with arrows indicating the next node.
      */
-    public void printTechProviders() {
-        System.out.println("Rotation list for the technicians");
-        if (head == null) return;
-
-        CircularNode current = head;
-        do {
-            System.out.print(current.data.getProfile().getFname() + " " + current.data.getProfile().getLname() + " (" + current.data.getLocation() + ")");
-            current = current.next;
-            // Print the arrow only if the current node is not the head
-            if (current != head) {
-                System.out.print(" --> ");
-            }
-        } while (current != head);
-        System.out.println(); // Print a new line after the list
-    }
+//    public void printTechProviders() {
+//        System.out.println("Rotation list for the technicians");
+//        if (head == null) return;
+//
+//        CircularNode current = head;
+//        do {
+//            System.out.print(current.data.getProfile().getFname() + " " + current.data.getProfile().getLname() + " (" + current.data.getLocation() + ")");
+//            current = current.next;
+//            // Print the arrow only if the current node is not the head
+//            if (current != head) {
+//                System.out.print(" --> ");
+//            }
+//        } while (current != head);
+//        System.out.println(); // Print a new line after the list
+//    }
 
     /**
      * Sorts the providers in the circular linked list based on their location and last name.

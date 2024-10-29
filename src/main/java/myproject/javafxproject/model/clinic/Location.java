@@ -7,15 +7,15 @@ package myproject.javafxproject.model.clinic;
  * @author Renil Khristi, Christian Roa
  */
 public enum Location {
-    BRIDGEWATER("Somerset", "08807"),
-    EDISON("Middlesex", "08817"),
-    PISCATAWAY("Middlesex", "08854"),
-    PRINCETON("Mercer", "08542"),
-    MORRISTOWN("Morris", "07960"),
-    CLARK("Union", "07066");
+    BRIDGEWATER("08807", "Somerset"),
+    EDISON("08817","Middlesex"),
+    PISCATAWAY("08854", "Middlesex"),
+    PRINCETON("08542", "Mercer"),
+    MORRISTOWN("07960", "Morris"),
+    CLARK("07066", "Union");
 
-    private final String county; // The county where the provider is located
-    private final String zip;     // The ZIP code of the location
+    private String zip;     // The ZIP code of the location
+    private String county; // The county where the provider is located
 
     /**
      * Creates a Location enum constant with the specified county and ZIP code.
@@ -23,9 +23,9 @@ public enum Location {
      * @param county The county of the provider's location.
      * @param zip    The ZIP code of the provider's location.
      */
-    private Location(String county, String zip) {
-        this.county = county;
+    Location(String zip, String county) {
         this.zip = zip;
+        this.county = county;
     }
 
     /**
@@ -44,5 +44,13 @@ public enum Location {
      */
     public String getZip() {
         return zip;
+    }
+    /**
+     * Gets the name of the city (the enum constant's name) in a more user-friendly format.
+     *
+     * @return The city name as a String.
+     */
+    public String getCity() {
+        return name();
     }
 }

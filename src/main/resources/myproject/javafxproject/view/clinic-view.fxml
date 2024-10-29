@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.javafxproject.controller.ClinicManagerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.javafxproject.controller.ClinicManagerController">
     <top>
         <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
@@ -67,9 +67,10 @@
                                         <HBox spacing="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <children>
                                                 <RadioButton fx:id="rbutton1" selected="true" text="Office Visit">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="AppToggleGroup" />
-                                       </toggleGroup></RadioButton>
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="AppToggleGroup" />
+                                                    </toggleGroup>
+                                                </RadioButton>
                                                 <RadioButton fx:id="rbutton2" text="Imaging Service" toggleGroup="$AppToggleGroup" />
                                             </children>
                                         </HBox>
@@ -80,12 +81,12 @@
                                                         <Insets />
                                                     </opaqueInsets>
                                                 </ComboBox>
-                                                <ComboBox prefWidth="100.0" promptText="Provider" />
+                                                <ComboBox fx:id="providerComboBox" prefWidth="100.0" promptText="Provider" />
                                             </children>
                                         </HBox>
                                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                             <children>
-                                                <Button mnemonicParsing="false" text="Load Providers" onAction="#loadProviders"/>
+                                                <Button fx:id="loadProvidersButton" onAction="#loadProviders" text="Load Providers" />
                                             </children>
                                         </HBox>
                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -96,7 +97,7 @@
                                         </HBox>
                                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                             <children>
-                                                <Button mnemonicParsing="false" prefWidth="100.0" text="Clear" />
+                                                <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearOutputTextArea" prefWidth="100.0" text="Clear" />
                                             </children>
                                         </HBox>
                                     </children>
@@ -157,29 +158,24 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Clinic Locations">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView prefHeight="306.0" prefWidth="600.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="City" />
-                            <TableColumn prefWidth="75.0" text="County" />
-                              <TableColumn prefWidth="75.0" text="Zip" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
+                <Tab text="Clinic Locations">
+                    <BorderPane prefHeight="440.0" prefWidth="600.0">
+                        <center>
+                            <TableView fx:id="tbl_location" BorderPane.alignment="CENTER">
+                                <columns>
+                                    <TableColumn fx:id="col_city" prefWidth="103.0" text="city" />
+                                    <TableColumn fx:id="col_zip" prefWidth="103.0" text="zip" />
+                                    <TableColumn fx:id="col_county" prefWidth="129.0" text="county" />
+                                </columns>
+                            </TableView>
+                        </center>
+                    </BorderPane>
+                </Tab>
         </tabs>
       </TabPane>
    </top>
    <bottom>
-      <TextArea promptText="Output" BorderPane.alignment="CENTER">
+      <TextArea fx:id="outputTextArea" editable="false" promptText="Output" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
