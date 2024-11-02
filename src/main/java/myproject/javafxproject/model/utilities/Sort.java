@@ -2,6 +2,7 @@ package myproject.javafxproject.model.utilities;
 
 
 import myproject.javafxproject.model.clinic.Appointment;
+import myproject.javafxproject.model.clinic.Patient;
 import myproject.javafxproject.model.clinic.Provider;
 
 /**

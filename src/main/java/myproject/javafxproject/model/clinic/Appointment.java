@@ -184,10 +184,13 @@ public class Appointment implements Comparable<Appointment> {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Appointment) {
-            Appointment other = (Appointment) obj;
-            return this.date.equals(other.date) && this.timeslot.equals(other.timeslot) && this.patient.equals(other.patient);
-        }
-        return false;
+        if (this == obj) return true; // Check if the same reference
+        if (obj == null || getClass() != obj.getClass()) return false; // Null and type check
+
+        Appointment other = (Appointment) obj;
+        return this.date.equals(other.date) &&
+                this.timeslot.equals(other.timeslot) &&
+                this.patient.equals(other.patient) &&
+                this.provider.equals(other.provider);
     }
 }

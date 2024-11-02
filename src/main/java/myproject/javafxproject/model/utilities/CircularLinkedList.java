@@ -14,26 +14,20 @@ public class CircularLinkedList {
      * The first Node in the Circular linked list
      */
     private CircularNode head;
-    /**
-     * The Last Node in the Circular linked list
-     */
     private CircularNode tail;
-    /**
-     * The size of the Circular linked list
-     */
+    private CircularNode current; // New field for the current node
     private int size;
 
-    /**
-     * A node in the CircularLinkedList that holds a Provider object.
-     */
+    // Constructor
+    public CircularLinkedList() {
+        head = null;
+        tail = null;
+        current = null; // Initialize current to null
+        size = 0;
+    }
     public static class CircularNode {
-        /**
-         * The data key of the CircularLinkedList - provider
-         */
+
         Provider data;
-        /**
-         * reference to the next Provider object
-         */
         CircularNode next;
 
         /**
@@ -64,14 +58,6 @@ public class CircularLinkedList {
         }
     }
 
-    /**
-     * Constructs an empty CircularLinkedList.
-     */
-    public CircularLinkedList() {
-        head = null;
-        tail = null;
-        size = 0;
-    }
 
     /**
      * Adds a new Provider to the circular linked list.
@@ -84,6 +70,7 @@ public class CircularLinkedList {
             head = newNode;
             tail = newNode;
             tail.next = head; // Circular link
+            current = head; // Set current to head
         } else {
             tail.next = newNode;
             tail = newNode;
@@ -91,6 +78,19 @@ public class CircularLinkedList {
         }
         size++;
     }
+
+    // Get the current node
+    public CircularNode getCurrent() {
+        return current;
+    }
+
+    // Move the current pointer to the next node
+    public void moveToNext() {
+        if (current != null) {
+            current = current.next != null ? current.next : head;
+        }
+    }
+
 
     /**
      * Gets the number of nodes in the circular linked list.
@@ -100,6 +100,7 @@ public class CircularLinkedList {
     public int size() {
         return size;
     }
+
 
     /**
      * Gets the head node of the circular linked list.
@@ -114,21 +115,6 @@ public class CircularLinkedList {
      * Prints the names and locations of all technician providers in the list.
      * The list is printed in a circular format with arrows indicating the next node.
      */
-//    public void printTechProviders() {
-//        System.out.println("Rotation list for the technicians");
-//        if (head == null) return;
-//
-//        CircularNode current = head;
-//        do {
-//            System.out.print(current.data.getProfile().getFname() + " " + current.data.getProfile().getLname() + " (" + current.data.getLocation() + ")");
-//            current = current.next;
-//            // Print the arrow only if the current node is not the head
-//            if (current != head) {
-//                System.out.print(" --> ");
-//            }
-//        } while (current != head);
-//        System.out.println(); // Print a new line after the list
-//    }
 
     /**
      * Sorts the providers in the circular linked list based on their location and last name.

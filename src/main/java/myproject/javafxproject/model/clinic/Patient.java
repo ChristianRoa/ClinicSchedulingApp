@@ -17,7 +17,7 @@ public class Patient extends Person {
      * @param profile The profile of the patient.
      * @param visits  The linked list of completed visits for the patient.
      */
-    Patient(Profile profile, Visit visits) {
+    public Patient(Profile profile, Visit visits) {
         super(profile);
         this.visits = visits;
     }
@@ -86,7 +86,7 @@ public class Patient extends Person {
      */
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString() + " " + charge() + "$";
     }
 
     /**

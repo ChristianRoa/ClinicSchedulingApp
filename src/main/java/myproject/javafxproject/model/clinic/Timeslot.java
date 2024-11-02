@@ -48,22 +48,19 @@ public class Timeslot implements Comparable<Timeslot> {
      * Returns a Timeslot based on the given index string.
      * The index corresponds to the order of valid timeslots starting from 1.
      *
-     * @param indexStr the string representation of the index
+     * @param timeslotStr the string representation of the index
      * @return a Timeslot object if the index is valid, null otherwise
      */
-    public static Timeslot getTimeSlot(String indexStr) {
-        int index;
-        try {
-            index = Integer.parseInt(indexStr);
-        } catch (NumberFormatException e) {
-            return null;
+    public static Timeslot getTimeSlot(String timeslotStr) {
+        for (int[] timeslot : validTimeslots) {
+            Timeslot slot = new Timeslot(timeslot[0], timeslot[1]);
+            if (slot.toString().equalsIgnoreCase(timeslotStr.trim())) {
+                return slot;
+            }
         }
-        if (index < 1 || index > validTimeslots.length) {
-            return null;
-        }
-        int[] timeslot = validTimeslots[index - 1];
-        return new Timeslot(timeslot[0], timeslot[1]);
+        return null;
     }
+
 
     /**
      * Compares this Timeslot to another Timeslot for ordering.
